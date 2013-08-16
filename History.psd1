@@ -54,7 +54,7 @@ ScriptsToProcess = @()
 NestedModules = @()
 
 # Functions to export from this module
-FunctionsToExport = '*'
+FunctionsToExport = @('prompt')
 
 # Cmdlets to export from this module
 CmdletsToExport = '*'
@@ -73,5 +73,6 @@ FileList = @()
 
 # Private data to pass to the module specified in ModuleToProcess
 PrivateData = ''
+
 }
 
