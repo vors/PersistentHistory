@@ -18,7 +18,7 @@ Copyright = '2013 Sergei Vorobev'
 Description = 'Incremental history tracking'
 
 # Version number of this module.
-ModuleVersion = '0.1.0.0'
+ModuleVersion = '0.1.0.1'
 
 # Script module or binary module file associated with this manifest
 RootModule = 'History.psm1'
@@ -54,7 +54,7 @@ ScriptsToProcess = @()
 NestedModules = @()
 
 # Functions to export from this module
-FunctionsToExport = @('prompt')
+FunctionsToExport = '*'
 
 # Cmdlets to export from this module
 CmdletsToExport = '*'

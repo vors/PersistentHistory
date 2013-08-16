@@ -11,10 +11,16 @@ function Save-HistoryIncremental() {
 # hook powershell's exiting event & hide the registration with -supportevent.
 #Register-EngineEvent -SourceIdentifier powershell.exiting -SupportEvent -Action { Save-History }
 
-Rename-Item Function:\prompt oldprompt
-function prompt {
-    Save-HistoryIncremental
-    oldprompt
+$oldPrompt = Get-Content function:\prompt
+
+if( $oldPrompt -notlike '*Save-HistoryIncremental*' )
+{
+    $newPrompt = @'
+Save-HistoryIncremental
+
+'@
+    $newPrompt += $oldPrompt
+    $function:prompt = [ScriptBlock]::Create($newPrompt)
 }
  
 # load previous history, if it exists
