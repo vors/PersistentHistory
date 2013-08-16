@@ -1,6 +1,3 @@
-# Incremental save history
-$historyPath = Join-Path (split-path $profile) history.csv
-
 function Save-HistoryAll() {
 #    Get-History -Count $MaximumHistoryCount | Group CommandLine | Foreach {$_.Group[0]} | Export-Csv $historyPath 
     Get-History -Count $MaximumHistoryCount | Group CommandLine | Foreach {$_.Group[0]} | Export-Csv $historyPath 
