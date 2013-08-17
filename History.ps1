@@ -1,6 +1,9 @@
 function Save-HistoryAll() {
-#    Get-History -Count $MaximumHistoryCount | Group CommandLine | Foreach {$_.Group[0]} | Export-Csv $historyPath 
-    Get-History -Count $MaximumHistoryCount | Group CommandLine | Foreach {$_.Group[0]} | Export-Csv $historyPath 
+    $history = Get-History -Count $MaximumHistoryCount
+    [array]::Reverse($history)
+    $history = $history | Group CommandLine | Foreach {$_.Group[0]}
+    [array]::Reverse($history)
+    $history | Export-Csv $historyPath
 }
 
 function Save-HistoryIncremental() {
