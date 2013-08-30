@@ -28,9 +28,15 @@ Save-HistoryIncremental
  
 # load previous history, if it exists
 if ((Test-Path $historyPath)) {
-    Import-Csv $historyPath | ? {$count++;$true} | Add-History
-    Write-Host -Fore Green "`nLoaded $count history item(s).`n"
-    Save-HistoryAll
+    $loadTime = 
+    (
+        Measure-Command 
+        {
+            Import-Csv $historyPath | ? {$count++;$true} | Add-History
+            Save-HistoryAll 
+        }
+    ).totalseconds
+    Write-Host -Fore Green "`nLoaded $count history item(s) in $loadTime seconds.`n"
 }
 
 
@@ -41,7 +47,6 @@ function Search-History()
         Retrive and filter history based on query
 
     .DESCRIPTION
-        
 
     .PARAMETER Name
 
