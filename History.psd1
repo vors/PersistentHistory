@@ -18,7 +18,7 @@ Copyright = '2013 Sergei Vorobev'
 Description = 'Incremental history tracking'
 
 # Version number of this module.
-ModuleVersion = '0.1.0.1'
+ModuleVersion = '0.1.0.2'
 
 # Script module or binary module file associated with this manifest
 RootModule = 'History.psm1'

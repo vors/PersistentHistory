@@ -32,3 +32,32 @@ if ((Test-Path $historyPath)) {
     Write-Host -Fore Green "`nLoaded $count history item(s).`n"
     Save-HistoryAll
 }
+
+
+function Search-History()
+{
+    <#
+    .SYNOPSIS
+        Retrive and filter history based on query
+
+    .DESCRIPTION
+        
+
+    .PARAMETER Name
+
+    .EXAMPLE
+
+    .LINK
+    #>
+
+    param(
+        [string[]] $query
+    )
+
+    $history = Get-History -Count $MaximumHistoryCount
+    foreach ($item in $query){
+        $item = $item.ToLower()
+        $history = $history | where {$_.CommandLine.ToLower().Contains($item)}    
+    }
+    $history
+}
