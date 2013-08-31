@@ -30,8 +30,7 @@ Save-HistoryIncremental
 if ((Test-Path $historyPath)) {
     $loadTime = 
     (
-        Measure-Command 
-        {
+        Measure-Command {
             Import-Csv $historyPath | ? {$count++;$true} | Add-History
             Save-HistoryAll 
         }
