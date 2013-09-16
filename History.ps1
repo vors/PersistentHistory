@@ -31,8 +31,10 @@ if ((Test-Path $historyPath)) {
     $loadTime = 
     (
         Measure-Command {
+            Import-Csv $historyPath | Add-History
+            Save-HistoryAll
+            Clear-History
             Import-Csv $historyPath | ? {$count++;$true} | Add-History
-            Save-HistoryAll 
         }
     ).totalseconds
     Write-Host -Fore Green "`nLoaded $count history item(s) in $loadTime seconds.`n"
