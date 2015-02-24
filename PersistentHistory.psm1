@@ -1,3 +1,5 @@
+$historyPath = Join-Path (split-path $profile) history.csv
+
 function Save-HistoryAll() {
     $history = Get-History -Count $MaximumHistoryCount
     [array]::Reverse($history)
@@ -6,9 +8,14 @@ function Save-HistoryAll() {
     $history | Export-Csv $historyPath
 }
 
+function Test-HistoryToSave($historyEntry)
+{
+    $historyEntry.CommandLine.Length -gt 2
+}
+
 function Save-HistoryIncremental() {
 #    Get-History -Count $MaximumHistoryCount | Group CommandLine | Foreach {$_.Group[0]} | Export-Csv $historyPath 
-    Get-History -Count 1 | Export-Csv -Append $historyPath 
+    Get-History -Count 1 | ?  { Test-HistoryToSave $_ } | Export-Csv -Append $historyPath 
 }
  
 # hook powershell's exiting event & hide the registration with -supportevent.
@@ -67,8 +74,4 @@ function Search-History()
     }
     $history
 }
-
-
-# Incremental save history
-$historyPath = Join-Path (split-path $profile) history.csv
 
