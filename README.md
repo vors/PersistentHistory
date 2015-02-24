@@ -9,7 +9,7 @@ Install
 This module hasn't been published to PS galleries, yet. 
 Please, clone dev version from github to try it.
 Copy PersistentHistory module to your modules directory.
-Add to you `$profile`:
+Add to your `$profile`:
 
 ```powershell
 Import-Module -Name PersistentHistory
