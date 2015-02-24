@@ -15,5 +15,5 @@ Add to your `$profile`:
 Import-Module -Name PersistentHistory
 ```
 
-If you are customizing your `prompt`, please, make sure to import module after that.
+If you are customizing `prompt`, please, make sure to import module after that.
 PersistentHistory adds hook to prompt function to store history file on disk.
