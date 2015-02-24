@@ -1,7 +1,5 @@
 PersistentHistory
 ======================
-Persistent cross-session history for powershell.
-
 Close window and loose all commands history? Not anymore. Just install this module and you will have 
 cross-session history tracking functionality like in bash.
 Designed to work with mutliply tabs in powershell_ise.
