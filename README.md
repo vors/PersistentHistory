@@ -6,13 +6,10 @@ Designed to work with mutliply tabs in powershell_ise.
 
 Install
 ----------------------
-This module hasn't been published to PS galleries, yet. 
-Please, clone dev version from github to try it.
-Copy PersistentHistory module to your modules directory.
-Add to your `$profile`:
+Install from PSGallery:
 
 ```powershell
-Import-Module -Name PersistentHistory
+Find-Module PersistentHistory | Install-Module; 'Import-Module PersistentHistory' >> $profile
 ```
 
 If you are customizing `prompt`, please, make sure to import module after that.
