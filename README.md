@@ -25,3 +25,6 @@ It's available thru `#` command.
 C:\> #pers<Tab>
 C:\> Find-Module PersistentHistory | Install-Module; 'Import-Module PersistentHistory' >> $profile
 ```
+
+It's **not available** with the `up arrow` (from the new session).
+
